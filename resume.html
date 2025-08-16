@@ -1,63 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Gokul — Portfolio with Gradient Background Animation -->
+  <!-- Gokul — Extended Portfolio with More 3D Animations & Content -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gokul — Web Developer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* RESET */
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{font-family:Poppins,sans-serif;color:#f4f4f9;line-height:1.8;overflow-x:hidden;position:relative;}
+    body{margin:0;font-family:Poppins,sans-serif;background:#12121c;color:#eee;line-height:1.8;overflow-x:hidden;}
+    header{position:sticky;top:0;background:#1a1a2e;padding:15px;text-align:center;font-weight:600;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,.4);}
+    nav a{color:#aaa;margin:0 12px;text-decoration:none;font-weight:500;transition:.3s;}
+    nav a:hover{color:#fff;text-shadow:0 0 12px #9ac6ff;}
 
-    /* Animated Gradient Background */
-    body::before{
-      content:"";
-      position:fixed;
-      top:0;left:0;width:100%;height:100%;
-      background:linear-gradient(270deg,#6a11cb,#2575fc,#ff6a00,#ee0979);
-      background-size:800% 800%;
-      z-index:-1;
-      animation:bgflow 20s ease infinite;
-    }
-    @keyframes bgflow{
-      0%{background-position:0% 50%;}
-      50%{background-position:100% 50%;}
-      100%{background-position:0% 50%;}
-    }
-
-    header{position:sticky;top:0;background:rgba(0,0,0,0.65);padding:15px;text-align:center;font-weight:600;z-index:100;backdrop-filter:blur(6px);}
-    nav a{color:#eee;margin:0 12px;text-decoration:none;font-weight:500;transition:.3s;}
-    nav a:hover{color:#ffea00;text-shadow:0 0 12px #ffea00;}
-
-    .hero{display:flex;flex-wrap:wrap;gap:40px;align-items:center;justify-content:center;padding:100px 8%;perspective:1200px;}
+    .hero{display:flex;flex-wrap:wrap;gap:40px;align-items:center;justify-content:center;padding:90px 8%;background:#12121c;perspective:1200px;}
     .hero img{width:100%;max-width:280px;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,.6);transition:transform 1s;transform-style:preserve-3d;}
     .hero img:hover{transform:rotateY(20deg) rotateX(12deg) scale(1.05);}
-    .hero h1{font-size:3rem;margin-bottom:14px;color:#ffea00;text-shadow:0 0 15px rgba(255,234,0,.7);}
-    .hero p{max-width:700px;}
+    .hero h1{font-size:2.8rem;margin-bottom:14px;color:#f0c674;text-shadow:0 0 15px rgba(240,198,116,0.5);}
+    .hero p{color:#ccc;max-width:700px;}
 
     .grid{display:flex;flex-wrap:wrap;gap:28px;padding:70px 8%;justify-content:center;}
 
-    .card{flex:1 1 290px;background:rgba(0,0,0,0.55);padding:30px;border-radius:18px;box-shadow:0 10px 28px rgba(0,0,0,.6);transition:transform .8s,box-shadow .8s;transform-style:preserve-3d;position:relative;overflow:hidden;backdrop-filter:blur(8px);}
-    .card::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at center,rgba(255,255,255,0.15),transparent 70%);transform:rotate(25deg);transition:1.5s;}
+    .card{flex:1 1 290px;background:#1f2235;padding:30px;border-radius:18px;box-shadow:0 10px 28px rgba(0,0,0,.5);transition:transform .8s,box-shadow .8s;transform-style:preserve-3d;position:relative;overflow:hidden;}
+    .card::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at center,rgba(154,198,255,0.15),transparent 70%);transform:rotate(25deg);transition:1.5s;}
     .card:hover::before{transform:rotate(385deg);}
-    .card:hover{transform:rotateY(14deg) rotateX(10deg) scale(1.07);box-shadow:0 25px 50px rgba(0,0,0,.9);}
-    .card h3{margin-top:0;color:#00f7ff;text-shadow:0 0 10px rgba(0,247,255,.7);}
-    .card p{color:#f4f4f9;}
-
-    /* Floating Animation for Cards */
-    .card{animation:float 6s ease-in-out infinite;}
-    @keyframes float{
-      0%{transform:translateY(0);}
-      50%{transform:translateY(-12px);}
-      100%{transform:translateY(0);}
-    }
+    .card:hover{transform:rotateY(14deg) rotateX(10deg) scale(1.06);box-shadow:0 22px 48px rgba(0,0,0,.7);}
+    .card h3{margin-top:0;color:#9ac6ff;text-shadow:0 0 10px rgba(154,198,255,0.5);}
+    .card p{color:#ddd;}
 
     .skills .bar{height:12px;background:#333;border-radius:999px;overflow:hidden;margin-top:10px;}
-    .skills .bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#00f7ff,#ffea00);box-shadow:0 0 8px #00f7ff;}
+    .skills .bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#9ac6ff,#39ff14);box-shadow:0 0 8px #9ac6ff;}
 
-    footer{padding:45px;background:rgba(0,0,0,0.7);text-align:center;color:#ddd;backdrop-filter:blur(6px);}
+    footer{padding:45px;background:#1a1a2e;text-align:center;color:#bbb;box-shadow:0 -4px 12px rgba(0,0,0,.4);}
   </style>
 </head>
 <body>
@@ -76,7 +49,8 @@
   <section id="about" class="hero">
     <div>
       <h1>Hi, I'm Gokul</h1>
-      <p>I am an aspiring <b>Web Developer</b> and <b>Data Analyst</b>. My work blends creativity with structured engineering thinking. I believe digital products must feel alive—with smooth flows, subtle animations, and engaging stories. My focus is not only on writing code but on crafting experiences that are memorable, intuitive, and visually stunning.</p>
+      <p>I am an aspiring <b>Web Developer</b> and <b>Data Analyst</b>. My portfolio reflects a fusion of technical curiosity and design thinking. For me, a website is not just a collection of pages but a living digital ecosystem. Every interaction, hover, scroll, or transition should feel natural and engaging. My engineering background taught me discipline and structured problem-solving, while my coding journey gave me the freedom to experiment, fail fast, and iterate quickly.</p>
+      <p>I strongly believe in continuous learning. Whether it's exploring new front-end frameworks, practicing data visualization, or understanding user psychology, I enjoy connecting the dots between creativity and technology. My mission is to craft digital products that tell stories, solve problems, and inspire curiosity.</p>
     </div>
     <div>
       <img src="./WhatsApp Image 2025-06-01 at 17.43.18_a6cd7eb8.jpg" alt="Gokul Photo">
@@ -86,49 +60,51 @@
   <section id="webdev" class="grid">
     <div class="card">
       <h3>Why Web Development?</h3>
-      <p>For me, coding is like architecture in the digital world. I enjoy designing foundations, ensuring stability, and adding creative flair. Every hover effect or animation is like adding artistic curves to a building that make people stop and admire.</p>
+      <p>Web development allows me to merge logical thinking with creativity. From structuring layouts to animating elements, I enjoy turning abstract concepts into functional designs. Each line of code shapes how people experience information online. For me, coding is like architecture in the digital world—structuring foundations, ensuring stability, and beautifying the final space.</p>
     </div>
     <div class="card">
       <h3>Front-End Specialization</h3>
-      <p>I specialize in front-end because it’s the face of technology. Smooth animations, gradients, and interactive cards elevate user experience beyond raw functionality. My practice includes CSS-only 3D designs, glowing hover states, and aesthetic micro-interactions.</p>
+      <p>I focus on front-end design because it’s where technology meets humans. A simple button hover, a smooth animation, or a responsive layout can make the difference between confusion and delight. I dedicate time to practicing 3D transforms, floating card effects, and micro-interactions that elevate user experience.</p>
     </div>
     <div class="card">
       <h3>User Experience</h3>
-      <p>Good UX is invisible. I design with empathy, focusing on clarity, accessibility, and responsiveness. My goal is to create websites where users don’t need to think—they just flow effortlessly through the content.</p>
+      <p>Good UX is about empathy. I study user behavior and accessibility standards to ensure my designs are inclusive. Typography, spacing, and visual hierarchy are my tools for guiding attention. My belief is simple: the best design is invisible, helping users achieve their goals effortlessly while leaving a subtle impression of elegance.</p>
     </div>
     <div class="card">
       <h3>Projects</h3>
-      <p>My symposium website was a milestone. I experimented with gradient themes, mobile-first responsiveness, and hover-based 3D effects. Every project since then has helped me refine my style, combining elegance with practicality.</p>
+      <p>My department symposium website was a turning point. I built reusable card components, optimized it for mobile, and tested hover animations for interactivity. That project taught me the power of consistency and modular design. Since then, I’ve been working on personal projects like interactive portfolios, mini dashboards, and CSS-only animations.</p>
     </div>
   </section>
 
   <section id="skills" class="grid skills">
     <div class="card">
       <h3>HTML & CSS</h3>
-      <p>Responsive layouts, modern styling, and creative effects.</p>
+      <p>Semantic markup, responsive layouts, and visually engaging designs.</p>
       <div class="bar"><span style="width:92%"></span></div>
     </div>
     <div class="card">
       <h3>Python</h3>
-      <p>Automation, data handling, and backend logic.</p>
-      <div class="bar"><span style="width:85%"></span></div>
+      <p>Data automation, backend scripts, and basic analysis pipelines.</p>
+      <div class="bar"><span style="width:84%"></span></div>
     </div>
     <div class="card">
       <h3>Data Analysis</h3>
-      <p>Extracting insights and visualizing them effectively.</p>
+      <p>Exploring datasets, cleaning information, and presenting insights visually.</p>
       <div class="bar"><span style="width:78%"></span></div>
     </div>
     <div class="card">
       <h3>UI/UX Design</h3>
-      <p>Wireframes, design psychology, and usability testing.</p>
-      <div class="bar"><span style="width:74%"></span></div>
+      <p>Wireframing, prototyping, and usability testing to ensure clarity and comfort.</p>
+      <div class="bar"><span style="width:75%"></span></div>
     </div>
   </section>
 
   <section id="journey" class="grid">
     <div class="card">
       <h3>My Journey</h3>
-      <p>I started with simple HTML pages and quickly fell in love with CSS animations. Over time, I learned responsive design, accessibility, and 3D transformations. My projects, including college symposium sites and interactive portfolios, gave me the chance to test my ideas in real-world scenarios.</p>
+      <p>I began with simple static pages, experimenting with background colors and text styles. The thrill of seeing instant results motivated me to dive deeper. Soon, I discovered responsive design and the challenge of making layouts work across all devices. I learned about grids, flex, and the beauty of media queries.</p>
+      <p>Then came the world of animations. I fell in love with hover effects and 3D transforms, which added life to static content. My symposium project was my first real-world challenge, where I applied these skills to build a usable product. It taught me patience, collaboration, and the value of feedback.</p>
+      <p>Now, I am refining my knowledge of accessibility, performance optimization, and modern design trends. I look forward to mastering frameworks and combining my passion for coding with my analytical mindset as a data-driven developer.</p>
     </div>
   </section>
 
@@ -150,7 +126,8 @@
   <section id="vision" class="grid">
     <div class="card">
       <h3>My Vision</h3>
-      <p>I want to merge web development and data analysis into a career that creates impact. By blending creativity, logic, and visual communication, I see myself working on projects that educate, inspire, and solve real problems through technology.</p>
+      <p>I see myself as a professional who bridges design and data. Websites and dashboards should not only function well but also communicate meaning effectively. I want to be part of projects that push boundaries, whether that’s crafting an interactive learning portal, a smart analytics dashboard, or an engaging company website.</p>
+      <p>My long-term vision is to blend my skills in web development and data analysis into a career where I can innovate, collaborate, and inspire. Technology keeps evolving, and I aim to evolve with it—always learning, always building.</p>
     </div>
   </section>
 
@@ -169,12 +146,12 @@
     </div>
     <div class="card">
       <h3>Career Goal</h3>
-      <p>To become a creative web developer and data analyst who designs not just websites but full digital experiences that people love to use.</p>
+      <p>To become a versatile developer and analyst capable of designing immersive websites and extracting insights from data. I want my work to leave a positive impact, shaping how people interact with technology.</p>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 Gokul • Portfolio with Gradient Background & 3D Animations</p>
+    <p>© 2025 Gokul • Extended Portfolio with More 3D Animations & Content</p>
   </footer>
 </body>
 </html>
