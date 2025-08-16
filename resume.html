@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D Animated Cards with Coding Background</title>
+  <title>3D Animated Cards with Image Background</title>
   <style>
     /* RESET */
     *{margin:0;padding:0;box-sizing:border-box;}
@@ -17,17 +17,17 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      background: url("cd52655a-4437-4977-8083-06d5e385d49a.png") no-repeat center center/cover;
     }
 
-    /* CANVAS BACKGROUND */
-    canvas {
+    /* DARK OVERLAY for readability */
+    body::before {
+      content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
       z-index: -1;
-      background: black;
     }
 
     h1 {
@@ -47,7 +47,7 @@
     }
 
     .card {
-      background: rgba(20,20,20,0.8);
+      background: rgba(20,20,20,0.85);
       padding: 25px;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.6);
@@ -75,8 +75,6 @@
   </style>
 </head>
 <body>
-  <canvas id="matrix"></canvas>
-
   <h1>My Coding Journey 🚀</h1>
   <div class="container">
     <div class="card">
@@ -96,47 +94,5 @@
       <p>I enjoy automating repetitive tasks using Python scripts and APIs, saving time and increasing efficiency in projects.</p>
     </div>
   </div>
-
-  <script>
-    // MATRIX BACKGROUND ANIMATION
-    const canvas = document.getElementById("matrix");
-    const ctx = canvas.getContext("2d");
-
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-
-    const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-    const fontSize = 16;
-    const columns = canvas.width / fontSize;
-
-    const drops = [];
-    for(let x = 0; x < columns; x++) drops[x] = 1;
-
-    function draw() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = "#39FF14";
-      ctx.font = fontSize + "px monospace";
-
-      for(let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
-      }
-    }
-
-    setInterval(draw, 35);
-
-    // Resize listener
-    window.addEventListener("resize", () => {
-      canvas.height = window.innerHeight;
-      canvas.width = window.innerWidth;
-    });
-  </script>
 </body>
 </html>
