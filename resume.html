@@ -1,98 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D Animated Cards with Image Background</title>
+  <!-- Gokul — Portfolio with Gradient Background Animation -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gokul — Web Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     /* RESET */
     *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:Poppins,sans-serif;color:#f4f4f9;line-height:1.8;overflow-x:hidden;position:relative;}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
-      overflow-x: hidden;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      background: url("cd52655a-4437-4977-8083-06d5e385d49a.png") no-repeat center center/cover;
+    /* Animated Gradient Background */
+    body::before{
+      content:"";
+      position:fixed;
+      top:0;left:0;width:100%;height:100%;
+      background:linear-gradient(270deg,#6a11cb,#2575fc,#ff6a00,#ee0979);
+      background-size:800% 800%;
+      z-index:-1;
+      animation:bgflow 20s ease infinite;
+    }
+    @keyframes bgflow{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
     }
 
-    /* DARK OVERLAY for readability */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: -1;
+    header{position:sticky;top:0;background:rgba(0,0,0,0.65);padding:15px;text-align:center;font-weight:600;z-index:100;backdrop-filter:blur(6px);}
+    nav a{color:#eee;margin:0 12px;text-decoration:none;font-weight:500;transition:.3s;}
+    nav a:hover{color:#ffea00;text-shadow:0 0 12px #ffea00;}
+
+    .hero{display:flex;flex-wrap:wrap;gap:40px;align-items:center;justify-content:center;padding:100px 8%;perspective:1200px;}
+    .hero img{width:100%;max-width:280px;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,.6);transition:transform 1s;transform-style:preserve-3d;}
+    .hero img:hover{transform:rotateY(20deg) rotateX(12deg) scale(1.05);}
+    .hero h1{font-size:3rem;margin-bottom:14px;color:#ffea00;text-shadow:0 0 15px rgba(255,234,0,.7);}
+    .hero p{max-width:700px;}
+
+    .grid{display:flex;flex-wrap:wrap;gap:28px;padding:70px 8%;justify-content:center;}
+
+    .card{flex:1 1 290px;background:rgba(0,0,0,0.55);padding:30px;border-radius:18px;box-shadow:0 10px 28px rgba(0,0,0,.6);transition:transform .8s,box-shadow .8s;transform-style:preserve-3d;position:relative;overflow:hidden;backdrop-filter:blur(8px);}
+    .card::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at center,rgba(255,255,255,0.15),transparent 70%);transform:rotate(25deg);transition:1.5s;}
+    .card:hover::before{transform:rotate(385deg);}
+    .card:hover{transform:rotateY(14deg) rotateX(10deg) scale(1.07);box-shadow:0 25px 50px rgba(0,0,0,.9);}
+    .card h3{margin-top:0;color:#00f7ff;text-shadow:0 0 10px rgba(0,247,255,.7);}
+    .card p{color:#f4f4f9;}
+
+    /* Floating Animation for Cards */
+    .card{animation:float 6s ease-in-out infinite;}
+    @keyframes float{
+      0%{transform:translateY(0);}
+      50%{transform:translateY(-12px);}
+      100%{transform:translateY(0);}
     }
 
-    h1 {
-      font-size: 2.5rem;
-      color: #39FF14;
-      margin-bottom: 30px;
-      text-shadow: 0 0 15px #39FF14, 0 0 30px #00ffea;
-    }
+    .skills .bar{height:12px;background:#333;border-radius:999px;overflow:hidden;margin-top:10px;}
+    .skills .bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#00f7ff,#ffea00);box-shadow:0 0 8px #00f7ff;}
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      padding: 20px;
-      width: 90%;
-      max-width: 1100px;
-    }
-
-    .card {
-      background: rgba(20,20,20,0.85);
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-      backdrop-filter: blur(6px);
-    }
-
-    .card:hover {
-      transform: rotateY(15deg) rotateX(10deg) scale(1.05);
-      box-shadow: 0 20px 40px rgba(0,255,150,0.8);
-    }
-
-    .card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-      color: #FFFF33;
-      text-shadow: 0 0 10px #39FF14;
-    }
-
-    .card p {
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #dcdcdc;
-    }
+    footer{padding:45px;background:rgba(0,0,0,0.7);text-align:center;color:#ddd;backdrop-filter:blur(6px);}
   </style>
 </head>
 <body>
-  <h1>My Coding Journey 🚀</h1>
-  <div class="container">
+  <header>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#webdev">Web Development</a>
+      <a href="#skills">Skills</a>
+      <a href="#journey">Journey</a>
+      <a href="#education">Education</a>
+      <a href="#vision">Vision</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about" class="hero">
+    <div>
+      <h1>Hi, I'm Gokul</h1>
+      <p>I am an aspiring <b>Web Developer</b> and <b>Data Analyst</b>. My work blends creativity with structured engineering thinking. I believe digital products must feel alive—with smooth flows, subtle animations, and engaging stories. My focus is not only on writing code but on crafting experiences that are memorable, intuitive, and visually stunning.</p>
+    </div>
+    <div>
+      <img src="./WhatsApp Image 2025-06-01 at 17.43.18_a6cd7eb8.jpg" alt="Gokul Photo">
+    </div>
+  </section>
+
+  <section id="webdev" class="grid">
     <div class="card">
-      <h2>💻 Web Development</h2>
-      <p>I build responsive and interactive websites with HTML, CSS, and JavaScript. I focus on creating modern, user-friendly web applications.</p>
+      <h3>Why Web Development?</h3>
+      <p>For me, coding is like architecture in the digital world. I enjoy designing foundations, ensuring stability, and adding creative flair. Every hover effect or animation is like adding artistic curves to a building that make people stop and admire.</p>
     </div>
     <div class="card">
-      <h2>📊 Data Analysis</h2>
-      <p>I explore data using Python, Pandas, and visualization tools. I extract insights, patterns, and meaningful results for decision-making.</p>
+      <h3>Front-End Specialization</h3>
+      <p>I specialize in front-end because it’s the face of technology. Smooth animations, gradients, and interactive cards elevate user experience beyond raw functionality. My practice includes CSS-only 3D designs, glowing hover states, and aesthetic micro-interactions.</p>
     </div>
     <div class="card">
-      <h2>👨‍🎓 Student Developer</h2>
-      <p>As a student, I constantly learn new technologies, sharpen problem-solving skills, and work on projects to grow as a developer.</p>
+      <h3>User Experience</h3>
+      <p>Good UX is invisible. I design with empathy, focusing on clarity, accessibility, and responsiveness. My goal is to create websites where users don’t need to think—they just flow effortlessly through the content.</p>
     </div>
     <div class="card">
-      <h2>⚙️ Automation</h2>
-      <p>I enjoy automating repetitive tasks using Python scripts and APIs, saving time and increasing efficiency in projects.</p>
+      <h3>Projects</h3>
+      <p>My symposium website was a milestone. I experimented with gradient themes, mobile-first responsiveness, and hover-based 3D effects. Every project since then has helped me refine my style, combining elegance with practicality.</p>
     </div>
-  </div>
+  </section>
+
+  <section id="skills" class="grid skills">
+    <div class="card">
+      <h3>HTML & CSS</h3>
+      <p>Responsive layouts, modern styling, and creative effects.</p>
+      <div class="bar"><span style="width:92%"></span></div>
+    </div>
+    <div class="card">
+      <h3>Python</h3>
+      <p>Automation, data handling, and backend logic.</p>
+      <div class="bar"><span style="width:85%"></span></div>
+    </div>
+    <div class="card">
+      <h3>Data Analysis</h3>
+      <p>Extracting insights and visualizing them effectively.</p>
+      <div class="bar"><span style="width:78%"></span></div>
+    </div>
+    <div class="card">
+      <h3>UI/UX Design</h3>
+      <p>Wireframes, design psychology, and usability testing.</p>
+      <div class="bar"><span style="width:74%"></span></div>
+    </div>
+  </section>
+
+  <section id="journey" class="grid">
+    <div class="card">
+      <h3>My Journey</h3>
+      <p>I started with simple HTML pages and quickly fell in love with CSS animations. Over time, I learned responsive design, accessibility, and 3D transformations. My projects, including college symposium sites and interactive portfolios, gave me the chance to test my ideas in real-world scenarios.</p>
+    </div>
+  </section>
+
+  <section id="education" class="grid">
+    <div class="card">
+      <h3>B.E. Mechanical Engineering</h3>
+      <p>Vel Tech High Tech • CGPA: 7.58<br>Expected Graduation: 2026</p>
+    </div>
+    <div class="card">
+      <h3>HSC</h3>
+      <p>Maths-Biology • 2021–22 • 64%</p>
+    </div>
+    <div class="card">
+      <h3>SSLC</h3>
+      <p>2019–20 • 59.6%</p>
+    </div>
+  </section>
+
+  <section id="vision" class="grid">
+    <div class="card">
+      <h3>My Vision</h3>
+      <p>I want to merge web development and data analysis into a career that creates impact. By blending creativity, logic, and visual communication, I see myself working on projects that educate, inspire, and solve real problems through technology.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="grid">
+    <div class="card">
+      <h3>Phone</h3>
+      <p>+91 8807898623</p>
+    </div>
+    <div class="card">
+      <h3>Email</h3>
+      <p>Vh12588_mech22@velhightech.com</p>
+    </div>
+    <div class="card">
+      <h3>Links</h3>
+      <p>GitHub: Gokul8807<br>LinkedIn: gokul-vijayakumar-36a9a2338</p>
+    </div>
+    <div class="card">
+      <h3>Career Goal</h3>
+      <p>To become a creative web developer and data analyst who designs not just websites but full digital experiences that people love to use.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Gokul • Portfolio with Gradient Background & 3D Animations</p>
+  </footer>
 </body>
 </html>
