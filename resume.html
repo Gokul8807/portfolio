@@ -1,187 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Gokul — Extended Portfolio with More Content -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gokul V | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <title>Gokul — Web Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #1e3c72, #2a5298);
-      color: #fff;
-      overflow-x: hidden;
-    }
-    header {
-      padding: 2rem;
-      text-align: center;
-      animation: slideIn 1.5s ease-out;
-    }
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #fff;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-      margin-bottom: 1rem;
-      transition: transform 0.4s ease;
-    }
-    .profile-img:hover {
-      transform: scale(1.1);
-    }
-    header h1 {
-      font-size: 3rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      color: #cfd8dc;
-    }
-    section {
-      padding: 2rem 10%;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 1s ease forwards;
-      animation-delay: 0.5s;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #fff;
-      display: inline-block;
-    }
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 1rem;
-      margin: 1rem 0;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: scale(1.05);
-      background: rgba(255, 255, 255, 0.15);
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #111;
-      font-size: 0.9rem;
-    }
-    @keyframes slideIn {
-      from { transform: translateY(-100px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes fadeUp {
-      to { transform: translateY(0); opacity: 1; }
-    }
-    a {
-      color: #ffecb3;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    body{margin:0; font-family:Poppins,sans-serif; background:#1b1c2b; color:#eee; line-height:1.7;}
+    header{position:sticky; top:0; background:#23243b; padding:15px; text-align:center; font-weight:600; z-index:100;}
+    nav a{color:#aaa; margin:0 10px; text-decoration:none; font-weight:500;}
+    nav a:hover{color:#fff;}
+
+    .hero{display:flex; flex-wrap:wrap; gap:30px; align-items:center; justify-content:center; padding:80px 8%; background:#1b1c2b;} 
+    .hero img{width:100%; max-width:260px; border-radius:20px; box-shadow:0 12px 28px rgba(0,0,0,.55);} 
+    .hero h1{font-size:2.6rem; margin-bottom:14px; color:#f0c674;}
+    .hero p{color:#ccc; max-width:620px;}
+
+    .grid{display:flex; flex-wrap:wrap; gap:25px; padding:60px 8%; justify-content:center;}
+
+    .card{flex:1 1 280px; background:#2b2e45; padding:28px; border-radius:16px; box-shadow:0 10px 25px rgba(0,0,0,.45); transition:.7s; transform-style:preserve-3d;}
+    .card:hover{transform:rotateY(14deg) rotateX(10deg) scale(1.05); box-shadow:0 22px 42px rgba(0,0,0,.7);} 
+    .card h3{margin-top:0; color:#9ac6ff;}
+    .card p{color:#ccc;}
+
+    .skills .bar{height:10px; background:#444; border-radius:999px; overflow:hidden; margin-top:8px;}
+    .skills .bar span{display:block; height:100%; border-radius:999px; background:#9ac6ff;}
+
+    footer{padding:40px; background:#23243b; text-align:center; color:#bbb;}
   </style>
 </head>
 <body>
   <header>
-    <img src="./WhatsApp Image 2025-06-01 at 17.43.18_a6cd7eb8.jpg" alt="Gokul V" class="profile-img">
-    <h1>Gokul V</h1>
-    <p>Mechanical Engineer | Software Developer | Automation Enthusiast</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#webdev">Web Development</a>
+      <a href="#skills">Skills</a>
+      <a href="#journey">Journey</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <div class="card">
-      <p>Aspiring Mechanical Engineer with a strong interest in software applications and
-automation. Eager to leverage my engineering background to contribute to
-innovative software solutions that enhance mechanical systems and improve
-efficiency.</p>
+  <section id="about" class="hero">
+    <div>
+      <h1>Hi, I'm Gokul</h1>
+      <p>I am an aspiring <b>Web Developer</b> and <b>Data Analyst</b>. My portfolio highlights not only my technical journey but also my vision to build websites that inspire, educate, and empower users. I believe websites should be more than digital placeholders; they must be living experiences that tell stories, guide people, and make tasks easier. My background in engineering, combined with my self‑learning in coding, allows me to approach development with both precision and creativity.</p>
+    </div>
+    <div>
+      <img src="./WhatsApp Image 2025-06-01 at 17.43.18_a6cd7eb8.jpg" alt="Gokul Photo">
     </div>
   </section>
 
-  <section>
-    <h2>Education</h2>
+  <section id="webdev" class="grid">
     <div class="card">
-      <ul>
-        <li><strong>B.E. in Mechanical Engineering</strong> – Vel Tech High Tech Dr. Rangarajan and Dr. Sakunthala Engineering College<br>Expected Graduation: April 2026 | CGPA: 7.58</li>
-        <li><strong>HSC - Maths Biology</strong> (2021–2022) – Percentage: 64%</li>
-        <li><strong>SSLC</strong> (2019–2020) – Percentage: 59.60%</li>
-      </ul>
+      <h3>Why Web Development?</h3>
+      <p>Web development is my chosen path because it blends logic with creativity. I enjoy solving technical challenges while also shaping the visual identity of projects. Writing HTML and CSS feels like sculpting structure and style, while data integration connects design with real‑world insights. For me, web development is the art of making information accessible and engaging.</p>
+    </div>
+    <div class="card">
+      <h3>Front‑End Focus</h3>
+      <p>I specialize in front‑end development, which involves creating responsive layouts, intuitive navigation, and interactive components. I continuously practice advanced CSS effects, transitions, and hover animations to make user interactions smooth and satisfying. A well‑implemented front‑end builds the bridge between raw functionality and human‑centered design.</p>
+    </div>
+    <div class="card">
+      <h3>User Experience</h3>
+      <p>Every website is an experience. I pay attention to typography, spacing, and color balance to ensure clarity and comfort for readers. By testing layouts across devices, I guarantee accessibility. Good UX is invisible—it doesn’t distract the user but helps them achieve their goals seamlessly.</p>
+    </div>
+    <div class="card">
+      <h3>Projects</h3>
+      <p>One of my key projects is the symposium website for my department. Through it, I learned the importance of structure, consistent color palettes, and mobile optimization. I also experimented with reusable components, which taught me efficiency. Each project adds layers to my skills, preparing me for professional web development work.</p>
     </div>
   </section>
 
-  <section>
-    <h2>Achievements</h2>
+  <section id="skills" class="grid skills">
     <div class="card">
-      <ul>
-        <li>Participated in Smart India Hackathon (2nd & 3rd Year)</li>
-        <li>Advanced to the next level in both years</li>
-        <li>Earned recognition for innovative engineering solutions</li>
-      </ul>
+      <h3>HTML & CSS</h3>
+      <p>Crafting clean layouts, semantic markup, and attractive styling for modern web pages.</p>
+      <div class="bar"><span style="width:90%"></span></div>
+    </div>
+    <div class="card">
+      <h3>Python</h3>
+      <p>Automating tasks, analyzing data, and creating supporting scripts for web projects.</p>
+      <div class="bar"><span style="width:82%"></span></div>
+    </div>
+    <div class="card">
+      <h3>Data Handling</h3>
+      <p>Transforming datasets into meaningful insights, which also guides design choices.</p>
+      <div class="bar"><span style="width:76%"></span></div>
+    </div>
+    <div class="card">
+      <h3>UI/UX</h3>
+      <p>Designing wireframes, experimenting with layout balance, and focusing on usability.</p>
+      <div class="bar"><span style="width:72%"></span></div>
     </div>
   </section>
 
-  <section>
-    <h2>Skills</h2>
+  <section id="journey" class="grid">
     <div class="card">
-      <ul>
-        <li>Programming Languages: Python</li>
-        <li>Markup language: HTML, CSS</li>
-        <li>Operating System : Windows</li>
-        <li>Design Software: Ui & Ux</li>
-        <li>Software Tools : Microsoft Word, Visual Studio Code, Figma</li>
-      </ul>
-    </div>
-  </section>
-  <section>
-    <h2>PROFESSIONAL SKILLS:</h2>
-    <div class="card"
-    <ul>
-        <li> Adaptability</li>
-        <li> Time Management</li>
-        <li> Problem-Solving Skills</li>
-        <li> Creativity</li>
-    </ul>
-  </section>
-  <section>
-    <h2>AREAS OF INTREST:</h2>
-    <div class="card"
-    <ul>
-        <li> Software Development</li>
-        <li> Web Development</li>
-        <li> Automation and Robotics</li>
-       
-    </ul>
-  </section>
-  <section>
-    <h2>Projects</h2>
-    <div class="card">
-      <strong>Aluminum MMC with Silicon Carbide</strong>
-      <p>Analyzed mechanical properties of Al-MMC composites for improved wear resistance.</p>
-    </div>
-    <div class="card">
-      <strong>Graphene/Carbon/Epoxy Composite</strong>
-      <p>Investigated structural behavior using compression molding techniques.</p>
+      <h3>My Web Development Journey</h3>
+      <p>My journey started with curiosity about how websites function. Initially, I experimented with static pages, editing colors, fonts, and layouts. This phase was exciting because small changes brought visible results. Over time, I explored responsive design principles, learning how to make layouts adapt to different screens. I discovered the importance of media queries and fluid units. These basics formed my foundation.</p>
+      <p>Later, I focused on adding life to pages using CSS hover effects and transitions. These subtle animations made the pages interactive and engaging. The deeper I went, the more I realized the power of design in shaping user perception. During my symposium project, I applied these skills to build a real product. It was a milestone that gave me confidence to take on larger challenges.</p>
+      <p>Currently, I am expanding my skills by practicing advanced styling, improving my understanding of color psychology, and structuring layouts with readability in mind. I dedicate time to analyzing professional websites to learn best practices. My long‑term goal is to become a versatile developer capable of delivering both visually pleasing and functionally sound applications.</p>
     </div>
   </section>
 
-  <section>
-    <h2>Contact</h2>
+  <section id="education" class="grid">
     <div class="card">
-      <p>Email: <a href="mailto:Vh12588_mech22@velhightech.com">Vh12588_mech22@velhightech.com</a></p>
-      <p>GitHub: <a href="https://github.com/Gokul8807" target="_blank">Gokul8807</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/gokul-vijayakumar-36a9a2338" target="_blank">Gokul Vijayakumar</a></p>
+      <h3>B.E. Mechanical Engineering</h3>
+      <p>Vel Tech High Tech • CGPA: 7.58<br>Expected Graduation: 2026</p>
+    </div>
+    <div class="card">
+      <h3>HSC</h3>
+      <p>Maths‑Biology • 2021–22 • 64%</p>
+    </div>
+    <div class="card">
+      <h3>SSLC</h3>
+      <p>2019–20 • 59.6%</p>
+    </div>
+  </section>
+
+  <section id="contact" class="grid">
+    <div class="card">
+      <h3>Phone</h3>
+      <p>+91 8807898623</p>
+    </div>
+    <div class="card">
+      <h3>Email</h3>
+      <p>Vh12588_mech22@velhightech.com</p>
+    </div>
+    <div class="card">
+      <h3>Links</h3>
+      <p>GitHub: Gokul8807<br>LinkedIn: gokul-vijayakumar-36a9a2338</p>
+    </div>
+    <div class="card">
+      <h3>Career Goal</h3>
+      <p>My career goal is to become a professional web developer and data analyst who combines technical depth with design thinking. I aim to contribute to impactful projects, collaborate with diverse teams, and never stop learning. By blending analytical skills with creativity, I wish to craft websites and dashboards that truly serve users.</p>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Gokul V. All rights reserved.
+    <p>© 2025 Gokul • Extended Portfolio with More Content and 3D Hover Animation</p>
   </footer>
 </body>
 </html>
